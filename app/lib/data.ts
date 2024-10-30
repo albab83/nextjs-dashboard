@@ -9,24 +9,43 @@ import {
 } from './definitions';
 import { formatCurrency } from './utils';
 
+// export async function fetchRevenue() {
+//   try {
+//     // Artificially delay a response for demo purposes.
+//     // Don't do this in production :)
+
+//     console.log('Fetching revenue data...');
+//     await new Promise((resolve) => setTimeout(resolve, 3000));
+
+//     const data = await sql<Revenue>`SELECT * FROM revenue`;
+
+//     console.log('Data fetch completed after 3 seconds.');
+
+//     return data.rows;
+//   } catch (error) {
+//     console.error('Database Error:', error);
+//     throw new Error('Failed to fetch revenue data.');
+//   }
+// }
+
 export async function fetchRevenue() {
   try {
-    // Artificially delay a response for demo purposes.
-    // Don't do this in production :)
-
     console.log('Fetching revenue data...');
+    
+    // Artificially delay a response for demo purposes
     await new Promise((resolve) => setTimeout(resolve, 3000));
 
-    const data = await sql<Revenue>`SELECT * FROM revenue`;
+    const data = await sql<Revenue>`SELECT * FROM revenue`; // Tambahkan backticks di sini
 
-    console.log('Data fetch completed after 3 seconds.');
+    console.log('Data fetch completed after 3 seconds:', data);
 
-    return data.rows;
+    return data.rows;  // Pastikan data.rows ada
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch revenue data.');
   }
 }
+
 
 export async function fetchLatestInvoices() {
   try {
