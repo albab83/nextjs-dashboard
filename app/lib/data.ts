@@ -33,7 +33,7 @@ export async function fetchRevenue() {
     console.log('Fetching revenue data...');
     
     // Artificially delay a response for demo purposes
-    await new Promise((resolve) => setTimeout(resolve, 0));
+    await new Promise((resolve) => setTimeout(resolve, 20000));
 
     const data = await sql<Revenue>`SELECT * FROM revenue`; // Tambahkan backticks di sini
 
